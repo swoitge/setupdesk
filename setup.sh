@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # install git
-sudo apt-get update && sudo apt-get install -y git subversion
+sudo apt-get update && sudo apt-get install -y git subversion curl
 git config --global user.email "user"
 git config --global user.name "user"
 
