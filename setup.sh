@@ -12,3 +12,6 @@ sudo apt-get update && sudo apt-get install -y atom
 
 # keepass xc
 sudo apt-get install -y keepassxc
+
+# meteor
+curl https://install.meteor.com/ | sh
