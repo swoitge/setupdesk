@@ -12,6 +12,7 @@ sudo sh -c 'echo "deb [arch=amd64] https://packagecloud.io/AtomEditor/atom/any/ 
 sudo apt-get update && sudo apt-get install -y atom
 apm install svn
 apm install rabbitvcs-svn
+apm install atom-wrap-in-tag
 
 # keepass xc
 sudo apt-get install -y keepassxc
