@@ -5,6 +5,10 @@ sudo apt-get update && sudo apt-get install -y git subversion curl
 git config --global user.email "user"
 git config --global user.name "user"
 
+#mongodb comapss
+wget https://downloads.mongodb.com/compass/mongodb-compass_1.26.0_amd64.deb
+sudo dpkg -i mongodb-compass_1.26.0_amd64.deb
+
 # atom
 sudo apt-get install -y rabbitvcs-cli rabbitvcs-nautilus
 wget -qO - https://packagecloud.io/AtomEditor/atom/gpgkey | sudo apt-key add -
