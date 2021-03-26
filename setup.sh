@@ -21,5 +21,9 @@ apm install atom-wrap-in-tag
 # keepass xc
 sudo apt-get install -y keepassxc
 
+# dropbox
+cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
+~/.dropbox-dist/dropboxd
+
 # meteor
 curl https://install.meteor.com/ | sh
