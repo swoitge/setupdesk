@@ -18,12 +18,15 @@ apm install svn
 apm install rabbitvcs-svn
 apm install atom-wrap-in-tag
 
+#project maintenance
+wget -q https://raw.githubusercontent.com/swoitge/setupdesk/main/maintain-projects.js
+
 # keepass xc
 sudo apt-get install -y keepassxc
 
 # dropbox
-cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
-~/.dropbox-dist/dropboxd
+# cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
+# ~/.dropbox-dist/dropboxd
 
 # meteor
 curl https://install.meteor.com/ | sh
