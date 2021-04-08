@@ -2,9 +2,16 @@ const {spawnSync}    = require('child_process');
 const {spawn}        = require('child_process');
 const fs             = require('fs');
 const readline       = require("readline");
+const CFG_FILE       = "projects.json";
 
 // read the config from working directory
-var config = JSON.parse(fs.readFileSync("prepare-projects.json"));
+if(!fs.existsSync(CFG_FILE)) {
+  console.log("config file does not exist");
+  return;
+}
+
+// read config
+var config = JSON.parse(fs.readFileSync(CFG_FILE));
 
 const rl = readline.createInterface({
     input: process.stdin,
@@ -22,8 +29,8 @@ rl.question("(A)ll Projects or Number:", function(number) {
   rl.question("Type of Action (D)ump or (C)heckout? ", function(type) {
 
     // checkout projects
-    if(type == "C") {
-      if(number == "A") {
+    if(type.toUpperCase() == "C") {
+      if(number.toUpperCase() == "A") {
         checkoutAllProjects();
       }
       else {
@@ -33,8 +40,8 @@ rl.question("(A)ll Projects or Number:", function(number) {
     }
 
     // dump projects
-    if(type == "D") {
-      if(number == "A") {
+    if(type.toUpperCase() == "D") {
+      if(number.toUpperCase() == "A") {
         dumpAllProjects();
       }
       else {
