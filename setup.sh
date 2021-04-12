@@ -5,6 +5,13 @@ sudo apt-get update && sudo apt-get install -y git subversion curl
 git config --global user.email "user"
 git config --global user.name "user"
 
+# kubectl
+sudo apt-get install -y apt-transport-https
+curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list
+sudo apt-get update
+sudo apt-get install -y kubectl
+
 #mongodb comapss
 wget https://downloads.mongodb.com/compass/mongodb-compass_1.26.0_amd64.deb
 sudo dpkg -i mongodb-compass_1.26.0_amd64.deb
