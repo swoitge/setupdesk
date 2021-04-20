@@ -18,6 +18,8 @@ const rl = readline.createInterface({
     output: process.stdout
 });
 
+const PASS_Question = "SVN Password? ";
+
 console.log("Confiǵured projects:");
 console.log("(A) All projects");
 for(var idx in config.projects) {
@@ -30,13 +32,23 @@ rl.question("(A)ll Projects or Number:", function(number) {
 
     // checkout projects
     if(type.toUpperCase() == "C") {
-      if(number.toUpperCase() == "A") {
-        checkoutAllProjects();
-      }
-      else {
-        var project = config.projects[number-1];
-        checkoutProject(project);
-      }
+      rl._writeToOutput = function _writeToOutput(stringToWrite) {
+        if(stringToWrite == PASS_Question) {
+          rl.output.write(PASS_Question);}
+        else {
+          rl.output.write("*");
+        }
+      };
+      rl.question(PASS_Question, function(password) {
+        if(number.toUpperCase() == "A") {
+          checkoutAllProjects(password);
+        }
+        else {
+          var project = config.projects[number-1];
+          checkoutProject(password, project);
+        }
+        rl.close();
+      });
     }
 
     // dump projects
@@ -48,25 +60,26 @@ rl.question("(A)ll Projects or Number:", function(number) {
         var project = config.projects[number-1];
         dumpProject(project);
       }
+      rl.close();
     }
-    rl.close();
   });
 });
 
-function checkoutAllProjects() {
+function checkoutAllProjects(password) {
   // all projects
   for(var prj of config.projects) {
     checkoutProject(prj);
   }
 }
 
-function checkoutProject(prj) {
-  console.log("checout project", prj.name);
+function checkoutProject(password, prj) {
+  console.log("checking out project", prj.name);
 
   var realm = config.realms[prj.realm];
   fs.mkdirSync(realm.base + "/" + prj.name, {recursive: true});
-  var retval = spawnSync("svn", ["checkout","--username", realm.user, prj.svn, prj.name], {cwd:realm.base});
-  if(retval.error) console.log("error on svn", retval.error);
+  var retval = spawnSync("svn", ["checkout","--username", realm.user,"--password", password, prj.svn, prj.name], {cwd:realm.base});
+  console.log(retval.stdout.toString());
+  console.error(retval.stderr.toString());
 }
 
 function dumpAllProjects() {
