@@ -1,5 +1,8 @@
 #!/bin/bash
 
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo apt install -y ./google-chrome-stable_current_amd64.deb
+
 # install git
 sudo apt-get update && sudo apt-get install -y git subversion curl
 git config --global user.email "user"
@@ -26,7 +29,7 @@ sudo apt-get install -y rabbitvcs-cli rabbitvcs-nautilus
 #wget -qO - https://packagecloud.io/AtomEditor/atom/gpgkey | sudo apt-key add -
 #sudo sh -c 'echo "deb [arch=amd64] https://packagecloud.io/AtomEditor/atom/any/ any main" > /etc/apt/sources.list.d/atom.list'
 #sudo apt-get update && sudo apt-get install -y atom
-sudo snap install --channel=edge atom
+sudo snap install --channel=edge atom --classic
 apm install svn
 apm install rabbitvcs-svn
 apm install atom-wrap-in-tag
