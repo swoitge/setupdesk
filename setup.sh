@@ -45,7 +45,7 @@ sudo apt-get install -y keepassxc
 # ~/.dropbox-dist/dropboxd
 
 # nodejs
-sudo apt-get install -y nodejs
+sudo apt-get install -y nodejs build-essential
 
 # meteor
 curl https://install.meteor.com/ | sh
