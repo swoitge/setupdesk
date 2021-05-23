@@ -44,5 +44,8 @@ sudo apt-get install -y keepassxc
 # cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
 # ~/.dropbox-dist/dropboxd
 
+# nodejs
+sudo apt-get install -y nodejs
+
 # meteor
 curl https://install.meteor.com/ | sh
