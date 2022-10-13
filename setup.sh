@@ -21,8 +21,8 @@ curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key --keyr
 sudo apt-get update && sudo apt-get install -y google-cloud-sdk
 
 #mongodb comapss
-wget https://downloads.mongodb.com/compass/mongodb-compass_1.26.0_amd64.deb
-sudo dpkg -i mongodb-compass_1.26.0_amd64.deb
+wget https://downloads.mongodb.com/compass/mongodb-compass_1.33.1_amd64.deb
+sudo dpkg -i mongodb-compass_1.33.1_amd64.deb
 
 #vs code
 sudo snap install code --classic
