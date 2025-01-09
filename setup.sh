@@ -3,7 +3,10 @@
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo apt install -y ./google-chrome-stable_current_amd64.deb
 
-# install git
+# install snap
+sudo apt-get update && sudo apt-get install -y snapd
+
+# install git + subversion
 sudo apt-get update && sudo apt-get install -y git subversion curl
 git config --global user.email "user"
 git config --global user.name "user"
